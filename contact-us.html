@@ -11,20 +11,15 @@
 
   <div class="lm-topbar">
     <div class="lm-container lm-topbar-inner">
-      <span>📞 Questions or Catering Enquiries? Call us at (555) 234-8910</span>
+      <span>📞 Questions or Catering Enquiries? Call us at 365-779-0273</span>
       <a href="meal-plan.html">Build Your Meal Plan →</a>
     </div>
   </div>
 
   <header class="lm-header">
     <div class="lm-container lm-header-inner">
-      <a href="index.html" class="lm-logo" aria-label="LeanMeal Home">
-        <svg width="36" height="36" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <rect width="64" height="64" rx="16" fill="#004B1A"/>
-          <path d="M18 35C18 24.5066 26.5066 16 37 16H47V26C47 36.4934 38.4934 45 28 45H18V35Z" fill="#C4FF88"/>
-          <path d="M22 44C26 35 33 28 43 22" stroke="#004B1A" stroke-width="3.5" stroke-linecap="round"/>
-        </svg>
-        <div>LeanMeal <span class="lm-logo-sub">Healthy &amp; Clean</span></div>
+      <a href="index.html" class="lm-logo" aria-label="Lean Meal: Healthy &amp; Clean">
+        <img src="assets/images/logo.png" alt="Lean Meal: Healthy &amp; Clean" class="lm-logo-img" />
       </a>
 
       <nav class="lm-nav" aria-label="Primary">
@@ -81,11 +76,11 @@
           <div style="display:grid; gap:14px;">
             <div class="lm-plate-box" style="margin:0;">
               <div style="font-size:0.78rem; font-weight:700; text-transform:uppercase; color:var(--lm-forest);">Event Bookings &amp; General Enquiries</div>
-              <div style="font-size:1.05rem; font-weight:600; margin-top:4px;">hello@leanmeal-template.com</div>
+              <div style="font-size:1.05rem; font-weight:600; margin-top:4px;">management@leanmeal.ca</div>
             </div>
             <div class="lm-plate-box" style="margin:0;">
               <div style="font-size:0.78rem; font-weight:700; text-transform:uppercase; color:var(--lm-forest);">Call Our Kitchen Concierge</div>
-              <div style="font-size:1.05rem; font-weight:600; margin-top:4px;">(555) 234-8910 · Mon–Sun 9:00 AM – 7:00 PM</div>
+              <div style="font-size:1.05rem; font-weight:600; margin-top:4px;">365-779-0273 · Mon–Sun 9:00 AM – 7:00 PM</div>
             </div>
           </div>
         </div>
@@ -103,7 +98,7 @@
             </div>
             <div class="lm-field">
               <label for="c-phone">Phone Number *</label>
-              <input id="c-phone" type="tel" class="lm-input" required placeholder="(555) 014-8920" />
+              <input id="c-phone" type="tel" class="lm-input" required placeholder="(365) 779-0273" />
             </div>
             <div class="lm-field">
               <label for="c-email">Email Address *</label>
@@ -152,8 +147,8 @@
         el.innerHTML = Data.partners.map(p => `
           <article class="lm-partner-card">
             <div>
-              <div class="lm-partner-badge">${App.escapeHtml(p.badge)}</div>
-              <h3 style="margin:14px 0 6px; font-size:1.08rem;">${App.escapeHtml(p.name)}</h3>
+              ${p.logo ? `<img src="${App.escapeHtml(p.logo)}" alt="${App.escapeHtml(p.name)}" class="lm-partner-logo" loading="lazy" />` : `<div class="lm-partner-badge">${App.escapeHtml(p.badge)}</div>`}
+              <h3 style="margin:6px 0 6px; font-size:1.08rem;">${App.escapeHtml(p.name)}</h3>
               <p style="margin:0 0 8px; font-size:0.84rem; color:var(--lm-muted);">${App.escapeHtml(p.address)}</p>
               <div style="font-size:0.78rem; font-weight:600; color:var(--lm-forest);">${App.escapeHtml(p.hours)}</div>
             </div>
