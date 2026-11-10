@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build Your Meal Plan — LeanMeal</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <div class="lm-topbar">
+    <div class="lm-container lm-topbar-inner">
+      <span>⚠️ Ordering Cutoffs: Tuesday orders skip next-day Wednesday · Saturday orders skip next-day Sunday</span>
+      <a href="our-menu.html">Browse Full Menu</a>
+    </div>
+  </div>
+
+  <header class="lm-header">
+    <div class="lm-container lm-header-inner">
+      <a href="index.html" class="lm-logo" aria-label="LeanMeal Home">
+        <svg width="36" height="36" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect width="64" height="64" rx="16" fill="#004B1A"/>
+          <path d="M18 35C18 24.5066 26.5066 16 37 16H47V26C47 36.4934 38.4934 45 28 45H18V35Z" fill="#C4FF88"/>
+          <path d="M22 44C26 35 33 28 43 22" stroke="#004B1A" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <div>LeanMeal <span class="lm-logo-sub">Healthy &amp; Clean</span></div>
+      </a>
+
+      <nav class="lm-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="our-menu.html">Our Menu</a>
+        <a href="meal-plan.html" class="active">Meal Plan</a>
+        <a href="shop.html">Weekly Plans</a>
+        <a href="contact-us.html">Contact Us</a>
+        <a href="account.html">My Account</a>
+      </nav>
+
+      <div class="lm-header-actions">
+        <button type="button" class="lm-cart-btn" data-open-cart aria-label="Open shopping bag">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="lm-cart-badge" data-cart-count style="display:none;">0</span>
+        </button>
+        <a href="checkout.html" class="lm-btn lm-btn-primary lm-btn-sm">Checkout</a>
+        <button type="button" class="lm-burger" data-open-mobile aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="lm-page-banner">
+    <div class="lm-container">
+      <div class="lm-breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Meal Plan Builder</span></div>
+      <h1>Customize Your Meal Plan</h1>
+      <p style="margin:0 auto; max-width:640px; color:rgba(255,255,255,0.82);">
+        Choose 6, 12, 18, or 24 fresh meals, pick your Halal proteins and two distinct sides per plate, and schedule split Wednesday &amp; Sunday drops.
+      </p>
+    </div>
+  </section>
+
+  <main class="lm-section lm-section-mist" id="lm-meal-wizard">
+    <div class="lm-container lm-wizard-shell">
+
+      <!-- 6-Step Progress Pills -->
+      <div class="lm-stepper" role="navigation" aria-label="Meal Builder Steps">
+        <button type="button" class="lm-step-pill active" data-step-pill="1"><span>Step 1</span><strong>Package</strong></button>
+        <button type="button" class="lm-step-pill" data-step-pill="2"><span>Step 2</span><strong>Proteins</strong></button>
+        <button type="button" class="lm-step-pill" data-step-pill="3"><span>Step 3</span><strong>Sides</strong></button>
+        <button type="button" class="lm-step-pill" data-step-pill="4"><span>Step 4</span><strong>Schedule</strong></button>
+        <button type="button" class="lm-step-pill" data-step-pill="5"><span>Step 5</span><strong>Details</strong></button>
+        <button type="button" class="lm-step-pill" data-step-pill="6"><span>Step 6</span><strong>Review</strong></button>
+      </div>
+
+      <!-- STEP 1: HOW MANY MEALS + FAQ -->
+      <section class="lm-wizard-step lm-wizard-card" data-step="1">
+        <div style="text-align:center;">
+          <span class="lm-eyebrow">Step 1 of 6</span>
+          <h2 class="lm-serif" style="margin:10px 0 6px; font-size:2.3rem;">How Many Meals?</h2>
+          <p style="margin:0; color:var(--lm-muted);">Select your meal package size. Larger packs unlock lower per-meal pricing down to CA$9.00/meal.</p>
+        </div>
+
+        <div class="lm-package-grid" id="lm-package-grid"></div>
+
+        <div class="lm-wizard-nav">
+          <span style="font-size:0.86rem; color:var(--lm-muted);">All meals include 2 fresh sides &amp; free split delivery.</span>
+          <button type="button" class="lm-btn lm-btn-primary" data-next-step="2">Continue to Select Proteins →</button>
+        </div>
+
+        <hr style="border:0; border-top:1px solid var(--lm-border); margin:40px 0;" />
+
+        <div>
+          <h3 class="lm-serif" style="font-size:1.85rem; margin:0 0 6px;">Frequently Asked Questions</h3>
+          <p style="margin:0; font-size:0.9rem; color:var(--lm-muted);">Everything you need to know about our custom meal packages</p>
+          <div class="lm-faq-list" id="lm-wizard-faq"></div>
+        </div>
+      </section>
+
+      <!-- STEP 2: SELECT PROTEINS -->
+      <section class="lm-wizard-step lm-wizard-card" data-step="2" style="display:none;">
+        <div class="lm-sticky-meter">
+          <div>
+            <strong id="lm-protein-meter-text" style="font-size:1.05rem;">Selected: 0 / 12 proteins</strong>
+            <div style="font-size:0.78rem; color:rgba(255,255,255,0.72);">Package Total: <span id="lm-step2-pkg-total">CA$132.00</span></div>
+          </div>
+          <div class="lm-progress-track">
+            <div class="lm-progress-fill" id="lm-protein-meter-fill" style="width:0%;"></div>
+          </div>
+          <button type="button" id="lm-autofill-proteins" class="lm-btn lm-btn-lime lm-btn-sm">Auto-Fill Remaining</button>
+        </div>
+
+        <div class="lm-filter-toolbar">
+          <input type="search" id="lm-protein-search" class="lm-search-input" placeholder="Search proteins (e.g. Chicken, Fajita, Salmon)..." />
+          <div class="lm-chip-group">
+            <button type="button" class="lm-chip active" data-protein-filter="All">All</button>
+            <button type="button" class="lm-chip" data-protein-filter="Chicken">Chicken</button>
+            <button type="button" class="lm-chip" data-protein-filter="Beef">Beef</button>
+            <button type="button" class="lm-chip" data-protein-filter="Seafood">Seafood</button>
+            <button type="button" class="lm-chip" data-protein-filter="High Protein">45g+ Protein</button>
+          </div>
+        </div>
+
+        <div style="margin-bottom:20px; padding:12px 16px; background:var(--lm-cream-soft); border-radius:12px; border:1px solid var(--lm-border);">
+          <div style="font-size:0.78rem; font-weight:700; margin-bottom:8px;">Selected Proteins Tray:</div>
+          <div id="lm-selected-tray" style="display:flex; flex-wrap:wrap; gap:8px;"></div>
+        </div>
+
+        <div class="lm-dish-grid" id="lm-protein-grid"></div>
+
+        <div class="lm-wizard-nav">
+          <button type="button" class="lm-btn lm-btn-outline" data-prev-step="1">← Back</button>
+          <button type="button" id="lm-btn-step2-next" class="lm-btn lm-btn-primary" data-next-step="3" disabled>Continue to Sides →</button>
+        </div>
+      </section>
+
+      <!-- STEP 3: SELECT SIDES FOR EACH PROTEIN -->
+      <section class="lm-wizard-step lm-wizard-card" data-step="3" style="display:none;">
+        <div style="margin-bottom:24px;">
+          <span class="lm-eyebrow">Step 3 of 6</span>
+          <h2 class="lm-serif" style="margin:10px 0 4px; font-size:2.1rem;">Select Sides for Each Protein</h2>
+          <p style="margin:0; color:var(--lm-muted);">Choose two distinct sides per plate. Use Quick Repeat to copy sides down to multiple meals in one click.</p>
+        </div>
+
+        <div id="lm-sides-list"></div>
+
+        <div class="lm-wizard-nav">
+          <button type="button" class="lm-btn lm-btn-outline" data-prev-step="2">← Back</button>
+          <button type="button" class="lm-btn lm-btn-primary" data-next-step="4">Continue to Delivery &amp; Add-Ons →</button>
+        </div>
+      </section>
+
+      <!-- STEP 4: HEALTHY ADD-ONS & SPLIT DELIVERY SCHEDULE -->
+      <section class="lm-wizard-step lm-wizard-card" data-step="4" style="display:none;">
+        <div style="margin-bottom:24px;">
+          <span class="lm-eyebrow">Step 4 of 6</span>
+          <h2 class="lm-serif" style="margin:10px 0 4px; font-size:2.1rem;">Delivery Date &amp; Healthy Add-Ons</h2>
+          <p style="margin:0; color:var(--lm-muted);">Add nutritious muffins or cold-pressed smoothies, then confirm your Wednesday &amp; Sunday delivery schedule.</p>
+        </div>
+
+        <!-- Collapsible Healthy Add-Ons -->
+        <div class="lm-addon-drawer">
+          <button type="button" class="lm-addon-toggle" id="lm-addon-toggle">
+            <div>
+              <strong style="font-size:1rem;">🍰 Add Healthy Add-On (Optional)</strong>
+              <div style="font-size:0.8rem; color:var(--lm-muted);">
+                <span id="lm-addon-count">0</span> item(s) added · Add-Ons Total: <strong id="lm-addon-total">CA$0.00</strong>
+              </div>
+            </div>
+            <span style="font-weight:700; color:var(--lm-forest);">Browse Add-Ons ▼</span>
+          </button>
+          <div class="lm-addon-list" id="lm-addon-list"></div>
+        </div>
+
+        <!-- Fulfillment Mode -->
+        <div class="lm-plate-box">
+          <h3 style="margin:0 0 12px; font-size:1.08rem;">🚚 Fulfillment Preference</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:14px;">
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:500;">
+              <input type="radio" name="lm-fulfillment" value="delivery" checked /> Home Doorstep Delivery (Free)
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:500;">
+              <input type="radio" name="lm-fulfillment" value="pickup" /> Partner Hub Pickup (Free)
+            </label>
+          </div>
+          <div id="lm-pickup-hub-wrap" style="display:none;">
+            <label style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:6px;">Select Partner Pickup Hub</label>
+            <select id="lm-pickup-hub" class="lm-select"></select>
+          </div>
+        </div>
+
+        <!-- Start Date & Cutoff Info -->
+        <div class="lm-plate-box">
+          <h3 style="margin:0 0 8px; font-size:1.08rem;">📅 Your Delivery Schedule (Wednesdays &amp; Sundays)</h3>
+          <p style="margin:0 0 14px; font-size:0.86rem; color:var(--lm-muted);">
+            Your order is automatically split into <strong>TWO equal drops (half &amp; half)</strong> for maximum 5-day fridge freshness.
+          </p>
+
+          <div style="display:flex; flex-wrap:wrap; gap:16px; margin-bottom:14px;">
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:500;">
+              <input type="radio" name="lm-start-mode" value="earliest" checked /> 📦 Earliest Available (Default)
+            </label>
+            <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:500;">
+              <input type="radio" name="lm-start-mode" value="advance" /> 📅 Select Advance Start Date (1+ week out)
+            </label>
+          </div>
+
+          <div id="lm-advance-date-wrap" style="display:none; max-width:300px; margin-bottom:14px;">
+            <label for="lm-advance-date" style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:6px;">Preferred Start Date</label>
+            <input type="date" id="lm-advance-date" class="lm-input" />
+          </div>
+
+          <div style="background:#fff; padding:12px 14px; border-radius:10px; border:1px solid var(--lm-border); font-size:0.8rem; color:var(--lm-muted); margin-bottom:16px;">
+            <strong>⚠️ Ordering Cutoff Rules:</strong> Orders placed on <strong>Tuesday</strong> cannot receive next-day Wednesday delivery. Orders placed on <strong>Saturday</strong> cannot receive next-day Sunday delivery.
+          </div>
+
+          <div id="lm-schedule-preview"></div>
+        </div>
+
+        <div class="lm-wizard-nav">
+          <button type="button" class="lm-btn lm-btn-outline" data-prev-step="3">← Back</button>
+          <button type="button" class="lm-btn lm-btn-primary" data-next-step="5">Continue to Your Information →</button>
+        </div>
+      </section>
+
+      <!-- STEP 5: CUSTOMER INFORMATION -->
+      <section class="lm-wizard-step lm-wizard-card" data-step="5" style="display:none;">
+        <div style="margin-bottom:24px;">
+          <span class="lm-eyebrow">Step 5 of 6</span>
+          <h2 class="lm-serif" style="margin:10px 0 4px; font-size:2.1rem;">Your Information</h2>
+          <p style="margin:0; color:var(--lm-muted);">Provide your contact and delivery details so our kitchen and courier can coordinate your drops.</p>
+        </div>
+
+        <div class="lm-form-grid">
+          <div class="lm-field full">
+            <label for="lm-cust-name">Full Name *</label>
+            <input type="text" id="lm-cust-name" class="lm-input" placeholder="Jordan Taylor" required />
+          </div>
+          <div class="lm-field">
+            <label for="lm-cust-email">Email Address *</label>
+            <input type="email" id="lm-cust-email" class="lm-input" placeholder="jordan@example.com" required />
+          </div>
+          <div class="lm-field">
+            <label for="lm-cust-phone">Phone Number *</label>
+            <input type="tel" id="lm-cust-phone" class="lm-input" placeholder="(555) 014-8920" required />
+          </div>
+        </div>
+
+        <div id="lm-cust-addr-block" class="lm-form-grid" style="margin-top:16px;">
+          <div class="lm-field" style="position:relative;">
+            <label for="lm-cust-address">Street Address (GTA Autocomplete) *</label>
+            <input type="text" id="lm-cust-address" class="lm-input" placeholder="Start typing street e.g. Maple Grove, Civic Centre..." autocomplete="off" />
+            <div id="lm-addr-suggestions" style="display:none; gap:6px; margin-top:8px;"></div>
+          </div>
+          <div class="lm-field">
+            <label for="lm-cust-postal">Postal Code</label>
+            <input type="text" id="lm-cust-postal" class="lm-input" placeholder="L5M 1K8" />
+          </div>
+          <div class="lm-field full">
+            <label for="lm-cust-notes">Delivery / Buzz Code Instructions (Optional)</label>
+            <textarea id="lm-cust-notes" rows="2" class="lm-textarea" placeholder="Leave at concierge, buzz #402, allergy note..."></textarea>
+          </div>
+        </div>
+
+        <div class="lm-wizard-nav">
+          <button type="button" class="lm-btn lm-btn-outline" data-prev-step="4">← Back</button>
+          <button type="button" class="lm-btn lm-btn-primary" data-next-step="6">Review Your Order →</button>
+        </div>
+      </section>
+
+      <!-- STEP 6: REVIEW ORDER & CHECKOUT -->
+      <section class="lm-wizard-step" data-step="6" style="display:none;">
+        <div class="lm-two-col">
+          <div class="lm-wizard-card">
+            <span class="lm-eyebrow">Step 6 of 6</span>
+            <h2 class="lm-serif" style="margin:10px 0 18px; font-size:2.1rem;">Review Your Order</h2>
+            <div id="lm-review-details"></div>
+            <div class="lm-wizard-nav" style="margin-top:20px;">
+              <button type="button" class="lm-btn lm-btn-outline" data-prev-step="5">← Edit Info</button>
+            </div>
+          </div>
+          <aside class="lm-summary-box" id="lm-review-summary"></aside>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="lm-order-confirm-modal" class="lm-modal"></div>
+
+  <footer class="lm-footer">
+    <div class="lm-container">
+      <div class="lm-footer-bottom" style="padding-top:0;">
+        <span>&copy; 2026 LeanMeal: Healthy &amp; Clean · Custom Meal Plan Builder</span>
+        <span><a href="index.html">Back to Home</a> · <a href="account.html">My Account</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/meal-plan.js"></script>
+</body>
+</html>

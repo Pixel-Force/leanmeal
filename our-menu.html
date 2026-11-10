@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Menu — LeanMeal: Healthy &amp; Clean</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <div class="lm-topbar">
+    <div class="lm-container lm-topbar-inner">
+      <span>🥗 Macro-Verified Dishes · Tap Any Meal for Full Nutrition &amp; Ingredients</span>
+      <a href="meal-plan.html">Save up to 35% with 6–24 Meal Packages →</a>
+    </div>
+  </div>
+
+  <header class="lm-header">
+    <div class="lm-container lm-header-inner">
+      <a href="index.html" class="lm-logo" aria-label="LeanMeal Home">
+        <svg width="36" height="36" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect width="64" height="64" rx="16" fill="#004B1A"/>
+          <path d="M18 35C18 24.5066 26.5066 16 37 16H47V26C47 36.4934 38.4934 45 28 45H18V35Z" fill="#C4FF88"/>
+          <path d="M22 44C26 35 33 28 43 22" stroke="#004B1A" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <div>LeanMeal <span class="lm-logo-sub">Healthy &amp; Clean</span></div>
+      </a>
+
+      <nav class="lm-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="our-menu.html" class="active">Our Menu</a>
+        <a href="meal-plan.html">Meal Plan</a>
+        <a href="shop.html">Weekly Plans</a>
+        <a href="contact-us.html">Contact Us</a>
+        <a href="account.html">My Account</a>
+      </nav>
+
+      <div class="lm-header-actions">
+        <button type="button" class="lm-cart-btn" data-open-cart aria-label="Open shopping bag">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="lm-cart-badge" data-cart-count style="display:none;">0</span>
+        </button>
+        <a href="meal-plan.html" class="lm-btn lm-btn-primary lm-btn-sm">Order Now</a>
+        <button type="button" class="lm-burger" data-open-mobile aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="lm-page-banner">
+    <div class="lm-container">
+      <div class="lm-breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>Our Menu</span></div>
+      <h1>Our Chef-Crafted Menu</h1>
+      <p style="margin:0 auto; max-width:640px; color:rgba(255,255,255,0.82);">
+        Explore high-protein Halal entrées, crisp garden salads, cold-pressed smoothies, and naturally sweetened baked treats.
+      </p>
+    </div>
+  </section>
+
+  <main class="lm-section">
+    <div class="lm-container">
+      <div class="lm-tabs-row" role="tablist">
+        <button type="button" class="lm-tab-btn active" data-menu-cat="All">All Dishes</button>
+        <button type="button" class="lm-tab-btn" data-menu-cat="Main Menu">Main Menu</button>
+        <button type="button" class="lm-tab-btn" data-menu-cat="Salads">Salads</button>
+        <button type="button" class="lm-tab-btn" data-menu-cat="Beverages">Beverages</button>
+        <button type="button" class="lm-tab-btn" data-menu-cat="Healthy Desserts">Healthy Desserts</button>
+      </div>
+
+      <div class="lm-filter-toolbar">
+        <input type="search" id="lm-menu-search" class="lm-search-input" placeholder="Search dishes, ingredients, or macros..." />
+        <div class="lm-chip-group">
+          <button type="button" class="lm-chip" data-macro-filter="highProtein">40g+ Protein</button>
+          <button type="button" class="lm-chip" data-macro-filter="lowCal">Under 350 kcal</button>
+          <button type="button" class="lm-chip" data-macro-filter="lowCarb">Low Carb (&lt;15g)</button>
+        </div>
+        <select id="lm-menu-sort" class="lm-select" style="width:auto; min-width:190px;">
+          <option value="default">Sort: Featured</option>
+          <option value="proteinDesc">Protein: High to Low</option>
+          <option value="calAsc">Calories: Low to High</option>
+          <option value="priceAsc">Price: Low to High</option>
+        </select>
+      </div>
+
+      <div id="lm-menu-count" style="font-size:0.86rem; color:var(--lm-muted); margin-bottom:18px;"></div>
+      <div class="lm-dish-grid" id="lm-full-menu-grid"></div>
+    </div>
+  </main>
+
+  <footer class="lm-footer">
+    <div class="lm-container">
+      <div class="lm-footer-grid">
+        <div>
+          <div class="lm-logo" style="color:#fff; margin-bottom:14px;">LeanMeal · Healthy &amp; Clean</div>
+          <p style="font-size:0.86rem; color:rgba(255,255,255,0.68);">Fresh, chef-designed, macro-verified meals delivered twice weekly.</p>
+          <div style="font-size:0.88rem;">📞 (555) 234-8910 · hello@leanmeal-template.com</div>
+        </div>
+        <div>
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="our-menu.html">Our Menu</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Meal Ordering</h4>
+          <ul>
+            <li><a href="meal-plan.html">Custom Meal Plan (6–24)</a></li>
+            <li><a href="shop.html">Weekly 5-Day Plans</a></li>
+            <li><a href="checkout.html">Cart Checkout</a></li>
+            <li><a href="account.html">My Account</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Fresh Promise</h4>
+          <ul>
+            <li>100% Certified Halal Meats</li>
+            <li>Zero Preservatives</li>
+            <li>Wed &amp; Sun Split Drops</li>
+          </ul>
+        </div>
+      </div>
+      <div class="lm-footer-bottom">
+        <span>&copy; 2026 LeanMeal: Healthy &amp; Clean. All Rights Reserved.</span>
+        <span><a href="meal-plan.html" style="color:var(--lm-lime);">Build a Custom Meal Plan →</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const Data = window.LEANMEAL_DATA;
+      const App = window.LeanMealApp;
+      const grid = document.getElementById('lm-full-menu-grid');
+      const countEl = document.getElementById('lm-menu-count');
+
+      let cat = 'All';
+      let search = '';
+      let sort = 'default';
+      const macroFilters = new Set();
+
+      function render() {
+        let list = Data.menuItems.filter(item => {
+          if (cat !== 'All' && item.category !== cat) return false;
+          if (search && !(item.name + ' ' + item.description + ' ' + item.ingredients).toLowerCase().includes(search)) return false;
+          if (macroFilters.has('highProtein') && item.protein < 40) return false;
+          if (macroFilters.has('lowCal') && item.calories > 350) return false;
+          if (macroFilters.has('lowCarb') && item.carbs >= 15) return false;
+          return true;
+        });
+
+        if (sort === 'proteinDesc') list = [...list].sort((a, b) => b.protein - a.protein);
+        if (sort === 'calAsc') list = [...list].sort((a, b) => a.calories - b.calories);
+        if (sort === 'priceAsc') list = [...list].sort((a, b) => a.price - b.price);
+
+        countEl.textContent = `Showing ${list.length} of ${Data.menuItems.length} fresh dishes`;
+        grid.innerHTML = list.length > 0
+          ? list.map(App.renderDishCard).join('')
+          : `<div style="grid-column:1/-1; text-align:center; padding:48px; background:var(--lm-mist); border-radius:18px;">
+               <h3>No dishes match those filters</h3>
+               <p style="color:var(--lm-muted);">Try clearing a macro filter or searching another ingredient.</p>
+             </div>`;
+      }
+
+      document.querySelectorAll('[data-menu-cat]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          cat = btn.dataset.menuCat;
+          document.querySelectorAll('[data-menu-cat]').forEach(b => b.classList.toggle('active', b === btn));
+          render();
+        });
+      });
+
+      document.querySelectorAll('[data-macro-filter]').forEach(chip => {
+        chip.addEventListener('click', () => {
+          const key = chip.dataset.macroFilter;
+          if (macroFilters.has(key)) macroFilters.delete(key);
+          else macroFilters.add(key);
+          chip.classList.toggle('active');
+          render();
+        });
+      });
+
+      document.getElementById('lm-menu-search').addEventListener('input', (e) => {
+        search = e.target.value.trim().toLowerCase();
+        render();
+      });
+
+      document.getElementById('lm-menu-sort').addEventListener('change', (e) => {
+        sort = e.target.value;
+        render();
+      });
+
+      render();
+    });
+  </script>
+</body>
+</html>

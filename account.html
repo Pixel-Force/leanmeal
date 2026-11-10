@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account — LeanMeal: Healthy &amp; Clean</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <header class="lm-header">
+    <div class="lm-container lm-header-inner">
+      <a href="index.html" class="lm-logo" aria-label="LeanMeal Home">
+        <svg width="36" height="36" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect width="64" height="64" rx="16" fill="#004B1A"/>
+          <path d="M18 35C18 24.5066 26.5066 16 37 16H47V26C47 36.4934 38.4934 45 28 45H18V35Z" fill="#C4FF88"/>
+          <path d="M22 44C26 35 33 28 43 22" stroke="#004B1A" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <div>LeanMeal <span class="lm-logo-sub">Healthy &amp; Clean</span></div>
+      </a>
+
+      <nav class="lm-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="our-menu.html">Our Menu</a>
+        <a href="meal-plan.html">Meal Plan</a>
+        <a href="shop.html">Weekly Plans</a>
+        <a href="contact-us.html">Contact Us</a>
+        <a href="account.html" class="active">My Account</a>
+      </nav>
+
+      <div class="lm-header-actions">
+        <button type="button" class="lm-cart-btn" data-open-cart aria-label="Open shopping bag">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="lm-cart-badge" data-cart-count style="display:none;">0</span>
+        </button>
+        <a href="meal-plan.html" class="lm-btn lm-btn-primary lm-btn-sm">Order Now</a>
+        <button type="button" class="lm-burger" data-open-mobile aria-label="Open menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="lm-page-banner">
+    <div class="lm-container">
+      <div class="lm-breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>My Account</span></div>
+      <h1>My Account</h1>
+      <p style="margin:0 auto; max-width:580px; color:rgba(255,255,255,0.82);">
+        Sign in or create an account to track meal plan deliveries, saved addresses, and past orders.
+      </p>
+    </div>
+  </section>
+
+  <main class="lm-section lm-section-mist">
+    <div class="lm-container" id="lm-account-root"></div>
+  </main>
+
+  <footer class="lm-footer">
+    <div class="lm-container">
+      <div class="lm-footer-bottom" style="padding-top:0;">
+        <span>&copy; 2026 LeanMeal: Healthy &amp; Clean. All Rights Reserved.</span>
+        <span><a href="our-menu.html">Our Menu</a> · <a href="meal-plan.html">Meal Plan</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const App = window.LeanMealApp;
+      const root = document.getElementById('lm-account-root');
+
+      function render() {
+        const user = App.getUser();
+        const orders = App.getOrders();
+
+        if (!user) {
+          root.innerHTML = `
+            <div class="lm-equal-two">
+              <div class="lm-form-card">
+                <h2 class="lm-serif" style="margin:0 0 18px; font-size:2rem;">Login</h2>
+                <form id="lm-login-form" style="display:grid; gap:16px;">
+                  <div class="lm-field">
+                    <label for="login-email">Username or email address *</label>
+                    <input id="login-email" type="email" class="lm-input" required placeholder="you@example.com" />
+                  </div>
+                  <div class="lm-field">
+                    <label for="login-pass">Password *</label>
+                    <input id="login-pass" type="password" class="lm-input" required placeholder="••••••••" />
+                  </div>
+                  <label style="display:flex; align-items:center; gap:8px; font-size:0.86rem;">
+                    <input type="checkbox" checked /> Remember me
+                  </label>
+                  <button type="submit" class="lm-btn lm-btn-primary">Log in</button>
+                </form>
+              </div>
+
+              <div class="lm-form-card">
+                <h2 class="lm-serif" style="margin:0 0 18px; font-size:2rem;">Register</h2>
+                <form id="lm-register-form" style="display:grid; gap:16px;">
+                  <div class="lm-field">
+                    <label for="reg-name">Full Name *</label>
+                    <input id="reg-name" type="text" class="lm-input" required placeholder="Alex Morgan" />
+                  </div>
+                  <div class="lm-field">
+                    <label for="reg-email">Email address *</label>
+                    <input id="reg-email" type="email" class="lm-input" required placeholder="alex@example.com" />
+                  </div>
+                  <div class="lm-field">
+                    <label for="reg-pass">Create Password *</label>
+                    <input id="reg-pass" type="password" class="lm-input" required minlength="6" placeholder="Min. 6 characters" />
+                  </div>
+                  <p style="margin:0; font-size:0.82rem; color:var(--lm-muted);">
+                    Your personal details will be used to streamline meal plan scheduling and order tracking.
+                  </p>
+                  <button type="submit" class="lm-btn lm-btn-outline">Register Account</button>
+                </form>
+              </div>
+            </div>
+          `;
+
+          document.getElementById('lm-login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            App.saveUser({
+              email,
+              name: email.split('@')[0],
+              phone: '(555) 234-8910',
+              address: '240 Maple Grove Ave, Mississauga, ON L5M 0A1'
+            });
+            App.showToast('Signed in to your LeanMeal account!');
+            render();
+          });
+
+          document.getElementById('lm-register-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            App.saveUser({
+              name: document.getElementById('reg-name').value.trim(),
+              email: document.getElementById('reg-email').value.trim(),
+              phone: '',
+              address: ''
+            });
+            App.showToast('Account registered and signed in!');
+            render();
+          });
+          return;
+        }
+
+        // Logged-in Dashboard
+        root.innerHTML = `
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:14px; margin-bottom:28px;">
+            <div>
+              <span class="lm-eyebrow">Welcome Back</span>
+              <h2 class="lm-serif" style="margin:8px 0 0; font-size:2.1rem;">Hello, ${App.escapeHtml(user.name)}</h2>
+            </div>
+            <div style="display:flex; gap:10px;">
+              <a href="meal-plan.html" class="lm-btn lm-btn-primary lm-btn-sm">New Meal Plan</a>
+              <button type="button" id="lm-logout-btn" class="lm-btn lm-btn-outline lm-btn-sm">Sign Out</button>
+            </div>
+          </div>
+
+          <div class="lm-two-col">
+            <div class="lm-form-card">
+              <h3 style="margin:0 0 18px;">Order &amp; Meal Plan History (${orders.length})</h3>
+              ${orders.length === 0 ? `
+                <div style="text-align:center; padding:36px 12px; background:var(--lm-mist); border-radius:14px;">
+                  <p style="margin:0 0 14px; color:var(--lm-muted);">You haven't placed any orders in this browser yet.</p>
+                  <a href="meal-plan.html" class="lm-btn lm-btn-primary lm-btn-sm">Build Your First Meal Plan</a>
+                </div>
+              ` : `
+                <div style="display:grid; gap:14px;">
+                  ${orders.map(o => `
+                    <div class="lm-plate-box" style="margin:0;">
+                      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; margin-bottom:8px;">
+                        <strong>${App.escapeHtml(o.id)} · ${App.escapeHtml(o.type)}</strong>
+                        <span class="lm-badge lm-badge-halal">${App.escapeHtml(o.status)}</span>
+                      </div>
+                      <div style="font-size:0.84rem; color:var(--lm-muted); margin-bottom:8px;">
+                        Placed: ${new Date(o.createdAt).toLocaleString('en-CA')} · Total: <strong>${App.formatCAD(o.totals?.grandTotal || o.totals?.total || 0)}</strong>
+                      </div>
+                      ${o.schedule ? `
+                        <div style="font-size:0.8rem; background:#fff; padding:8px 12px; border-radius:8px; border:1px solid var(--lm-border);">
+                          Drop 1: ${App.escapeHtml(o.schedule[0].formatted)} (${o.schedule[0].meals} meals) ·
+                          Drop 2: ${App.escapeHtml(o.schedule[1].formatted)} (${o.schedule[1].meals} meals)
+                        </div>
+                      ` : ''}
+                    </div>
+                  `).join('')}
+                </div>
+              `}
+            </div>
+
+            <aside class="lm-summary-box" style="position:static;">
+              <h3 style="margin:0 0 16px;">Saved Profile &amp; Address</h3>
+              <form id="lm-profile-form" style="display:grid; gap:12px;">
+                <div class="lm-field">
+                  <label>Full Name</label>
+                  <input id="prof-name" class="lm-input" value="${App.escapeHtml(user.name)}" />
+                </div>
+                <div class="lm-field">
+                  <label>Email</label>
+                  <input id="prof-email" class="lm-input" value="${App.escapeHtml(user.email)}" />
+                </div>
+                <div class="lm-field">
+                  <label>Phone</label>
+                  <input id="prof-phone" class="lm-input" value="${App.escapeHtml(user.phone || '')}" placeholder="(555) 014-8920" />
+                </div>
+                <div class="lm-field">
+                  <label>Default GTA Delivery Address</label>
+                  <input id="prof-addr" class="lm-input" value="${App.escapeHtml(user.address || '')}" placeholder="Street, City, Postal Code" />
+                </div>
+                <button type="submit" class="lm-btn lm-btn-primary lm-btn-sm">Save Profile</button>
+              </form>
+            </aside>
+          </div>
+        `;
+
+        document.getElementById('lm-logout-btn').addEventListener('click', () => {
+          App.saveUser(null);
+          App.showToast('Signed out.');
+          render();
+        });
+
+        document.getElementById('lm-profile-form').addEventListener('submit', (e) => {
+          e.preventDefault();
+          App.saveUser({
+            name: document.getElementById('prof-name').value.trim(),
+            email: document.getElementById('prof-email').value.trim(),
+            phone: document.getElementById('prof-phone').value.trim(),
+            address: document.getElementById('prof-addr').value.trim()
+          });
+          App.showToast('Profile saved! Used automatically in Meal Plan Builder & Checkout.');
+        });
+      }
+
+      render();
+    });
+  </script>
+</body>
+</html>
